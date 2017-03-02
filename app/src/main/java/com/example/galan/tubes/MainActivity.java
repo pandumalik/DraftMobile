@@ -1,5 +1,7 @@
 package com.example.galan.tubes;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.design.widget.NavigationView;
@@ -10,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.preference.PreferenceManager;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -29,6 +32,8 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
     }
 
     @Override
@@ -76,6 +81,13 @@ public class MainActivity extends AppCompatActivity
             case R.id.setting:
                 fragment = new setting();
                 break;
+            case R.id.logout:
+                SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                SharedPreferences.Editor editor = settings.edit();
+                editor.remove("username");
+                Intent myIntent = new Intent(MainActivity.this, Login.class);
+                startActivity(myIntent);
+
         }
         if (fragment != null){
             android.support.v4.app.FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
