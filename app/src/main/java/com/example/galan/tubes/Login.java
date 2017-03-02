@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Login extends AppCompatActivity {
-    public static final String LOGIN_URL = "http://185.28.20.51/UserRegistration/login.php";
+    public static final String LOGIN_URL = "http://pandumalik.esy.es/UserRegistration/login.php";
     public static final String KEY_EMAIL = "email";
     public static final String KEY_PASSWORD = "password";
     public static final String LOGIN_SUCCESS = "success";
@@ -42,6 +42,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         editTextEmail = (EditText) findViewById(R.id.editText_email);
         editTextPassword = (EditText) findViewById(R.id.editText_password);
+
         BtnLogin = (Button) findViewById(R.id.btn_login);
         signUp = (TextView) findViewById(R.id.signupaccess);
 
@@ -62,8 +63,8 @@ public class Login extends AppCompatActivity {
     }
 
     private void login() {
-        final String email = editTextEmail.getText().toString().trim();
-        final String password = editTextPassword.getText().toString().trim();
+        final String email = editTextEmail.getText().toString();
+        final String password = editTextPassword.getText().toString();
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, LOGIN_URL,
                 new Response.Listener<String>() {

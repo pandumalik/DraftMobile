@@ -20,7 +20,7 @@ public class Signup extends AppCompatActivity {
     EditText edit_email;
     EditText edit_pass;
     Button btn_sign;
-    private static final String REGISTER_URL = "http://185.28.20.51/UserRegistration/register.php";
+    private static final String REGISTER_URL = "http://pandumalik.esy.es/UserRegistration/register.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +39,9 @@ public class Signup extends AppCompatActivity {
     }
 
     private void registerUser() {
-        String username = edit_username.getText().toString().trim().toLowerCase();
-        String email = edit_email.getText().toString().trim().toLowerCase();
-        String password = edit_pass.getText().toString().trim().toLowerCase();
+        String username = edit_username.getText().toString();
+        String email = edit_email.getText().toString();
+        String password = edit_pass.getText().toString();
         register(username, password, email);
     }
 
@@ -54,7 +54,7 @@ public class Signup extends AppCompatActivity {
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading = ProgressDialog.show(Signup.this, "Please Wait", null, true, true);
+                loading = ProgressDialog.show(Signup.this, "Please Wait", "Creating Your Account", true, true);
             }
 
             @Override
@@ -62,12 +62,14 @@ public class Signup extends AppCompatActivity {
                 super.onPostExecute(s);
                 loading.dismiss();
                 Toast.makeText(getApplicationContext(), "Registered", Toast.LENGTH_SHORT).show();
+                Intent myIntent = new Intent(Signup.this, Login.class);
+                startActivity(myIntent);
             }
 
             @Override
             protected String doInBackground(String... params) {
                 String s = params[0];
-                BufferedReader bufferReader = null;
+                BufferedReader bufferReader = null ;
                 try {
                     URL url = new URL(REGISTER_URL + s);
                     HttpURLConnection con = (HttpURLConnection) url.openConnection();
