@@ -73,14 +73,8 @@ public class Login extends AppCompatActivity {
                     public void onResponse(String response) {
                         if (response.trim().equalsIgnoreCase(LOGIN_SUCCESS)) {
 
-                            //SharedPreferences sharedPreferences = Login.this.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
-
-                            //SharedPreferences.Editor editor = sharedPreferences.edit();
-
-                            SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-                            SharedPreferences.Editor editor = settings.edit();
-                            editor.putString("username", editTextEmail.toString());
-
+                            SharedPreferences sharedPreferences = Login.this.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
                             editor.putBoolean(LOGGEDIN_SHARED_PREF, true);
                             editor.putString(EMAIL_SHARED_PREF, email);
 

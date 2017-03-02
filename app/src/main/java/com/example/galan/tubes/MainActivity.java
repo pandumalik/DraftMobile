@@ -1,5 +1,6 @@
 package com.example.galan.tubes;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -32,8 +33,6 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-
     }
 
     @Override
@@ -69,7 +68,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void displaySelectedScreen(int id){
-        Fragment fragment = null;
+        Fragment fragment = new materi();
 
         switch (id){
             case R.id.materi:
@@ -84,11 +83,12 @@ public class MainActivity extends AppCompatActivity
             case R.id.logout:
                 SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                 SharedPreferences.Editor editor = settings.edit();
-                editor.remove("username");
+                editor.remove("email");
                 Intent myIntent = new Intent(MainActivity.this, Login.class);
                 startActivity(myIntent);
-
+                break;
         }
+
         if (fragment != null){
             android.support.v4.app.FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.content_main,fragment);
