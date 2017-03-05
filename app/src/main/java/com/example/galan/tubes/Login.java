@@ -1,10 +1,13 @@
 package com.example.galan.tubes;
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -69,16 +72,18 @@ public class Login extends AppCompatActivity {
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, LOGIN_URL,
                 new Response.Listener<String>() {
+
                     @Override
                     public void onResponse(String response) {
+
                         if (response.trim().equalsIgnoreCase(LOGIN_SUCCESS)) {
 
                             SharedPreferences sharedPreferences = Login.this.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
                             SharedPreferences.Editor editor = sharedPreferences.edit();
                             editor.putBoolean(LOGGEDIN_SHARED_PREF, true);
                             editor.putString(EMAIL_SHARED_PREF, email);
-
                             editor.commit();
+                            finish();
 
                             Intent intent = new Intent(Login.this, MainActivity.class);
                             startActivity(intent);
@@ -114,5 +119,26 @@ public class Login extends AppCompatActivity {
             Intent intent = new Intent(Login.this, MainActivity.class);
             startActivity(intent);
         }
+    }
+
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(Login.this);
+        builder.setMessage("Apakah Anda Yakin Ingin Keluar");
+        builder.setCancelable(true);
+        builder.setPositiveButton("IYA", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int id) {
+                MainActivity.fa.finish();
+                finish();
+            }
+        });
+        builder.setNegativeButton("TIDAK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.cancel();
+            }
+        });
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 }

@@ -22,6 +22,18 @@
             android:gravity="center_vertical">
 
             <EditText
+                android:id="@+id/iduser"
+                android:layout_width="250dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:hint="Enter NIM"
+                android:textAlignment="center"
+                android:background="@drawable/rounded"
+                android:layout_marginTop="20dp"
+                android:inputType="number" />
+
+            <EditText
                 android:id="@+id/id_username"
                 android:layout_width="250dp"
                 android:layout_height="30dp"
