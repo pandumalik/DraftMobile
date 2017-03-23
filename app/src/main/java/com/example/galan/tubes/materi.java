@@ -1,6 +1,7 @@
 package com.example.galan.tubes;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -39,9 +40,12 @@ public class materi extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,@Nullable Bundle savedInstanceState) {
 
         LinearLayout ll = (LinearLayout)inflater.inflate(R.layout.fragment_materi, container, false);
+        //BackgroundTask bc = new BackgroundTask();
+
         Intent myIntent = new Intent(getActivity(), DisplayList.class);
         startActivity(myIntent);
         return ll;
     }
+
 
 }

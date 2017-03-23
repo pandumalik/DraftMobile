@@ -1,5 +1,6 @@
 package com.example.galan.tubes;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -39,14 +40,14 @@ public class Login extends AppCompatActivity {
     private TextView signUp;
     private Button BtnLogin;
     private boolean loggedIn = false;
-
+    public static Activity lg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         editTextEmail = (EditText) findViewById(R.id.editText_email);
         editTextPassword = (EditText) findViewById(R.id.editText_password);
-
+        lg = this;
         BtnLogin = (Button) findViewById(R.id.btn_login);
         signUp = (TextView) findViewById(R.id.signupaccess);
 
@@ -75,9 +76,7 @@ public class Login extends AppCompatActivity {
 
                     @Override
                     public void onResponse(String response) {
-
                         if (response.trim().equalsIgnoreCase(LOGIN_SUCCESS)) {
-
                             SharedPreferences sharedPreferences = Login.this.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
                             SharedPreferences.Editor editor = sharedPreferences.edit();
                             editor.putBoolean(LOGGEDIN_SHARED_PREF, true);
