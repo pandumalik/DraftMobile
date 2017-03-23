@@ -16,9 +16,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.preference.PreferenceManager;
+import android.view.View;
+import android.widget.Button;
 
-import static android.webkit.WebViewDatabase.getInstance;
+import com.example.galan.tubes.adaptertest.DisplayList;
+
 import static com.example.galan.tubes.Login.SHARED_PREF_NAME;
 
 public class MainActivity extends AppCompatActivity
@@ -32,11 +34,13 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         fa = this;
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
+
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -119,7 +123,7 @@ public class MainActivity extends AppCompatActivity
         builder.setPositiveButton("IYA", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int id) {
-                finish();
+                fa.finish();
             }
         });
         builder.setNegativeButton("TIDAK", new DialogInterface.OnClickListener() {

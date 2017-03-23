@@ -1,6 +1,7 @@
 package com.example.galan.tubes;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+
+import com.example.galan.tubes.adaptertest.BackgroundTask;
+import com.example.galan.tubes.adaptertest.DisplayList;
+import com.example.galan.tubes.adaptertest.RecyclerAdapter;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -34,12 +39,8 @@ public class materi extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,@Nullable Bundle savedInstanceState) {
 
         LinearLayout ll = (LinearLayout)inflater.inflate(R.layout.fragment_materi, container, false);
-        recyclerView = (RecyclerView) ll.findViewById(R.id.recycler_view);
-        layoutManager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(layoutManager);
-        adapter = new RecyclerAdapter();
-        recyclerView.setAdapter(adapter);
-        //some code
+        Intent myIntent = new Intent(getActivity(), DisplayList.class);
+        startActivity(myIntent);
         return ll;
     }
 
