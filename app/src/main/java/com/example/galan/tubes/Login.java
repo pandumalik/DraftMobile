@@ -38,18 +38,21 @@ public class Login extends AppCompatActivity {
     private EditText editTextEmail;
     private EditText editTextPassword;
     private TextView signUp;
+    private TextView userPrev;
     private Button BtnLogin;
     private boolean loggedIn = false;
     public static Activity lg;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         editTextEmail = (EditText) findViewById(R.id.editText_email);
         editTextPassword = (EditText) findViewById(R.id.editText_password);
-        lg = this;
         BtnLogin = (Button) findViewById(R.id.btn_login);
         signUp = (TextView) findViewById(R.id.signupaccess);
+        userPrev = (TextView) findViewById(R.id.oldnames);
+        lg = this;
 
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,7 +86,7 @@ public class Login extends AppCompatActivity {
                             editor.putString(EMAIL_SHARED_PREF, email);
                             editor.commit();
                             finish();
-
+                            userPrev.setText(editTextEmail.toString());
                             Intent intent = new Intent(Login.this, MainActivity.class);
                             startActivity(intent);
                         } else {
