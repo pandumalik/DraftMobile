@@ -1,6 +1,7 @@
 package com.example.galan.tubes;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -36,10 +37,9 @@ public class MainActivity extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-
-
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
     }
 
     @Override
@@ -73,6 +73,9 @@ public class MainActivity extends AppCompatActivity
             case R.id.logout:
                 logout();
                 startActivity(new Intent(this, Login.class));
+                break;
+            default:
+                fragment = new materi();
                 break;
         }
 
