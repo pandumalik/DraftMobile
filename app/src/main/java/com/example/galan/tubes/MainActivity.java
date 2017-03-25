@@ -16,10 +16,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-
-import com.example.galan.tubes.adaptertest.DisplayList;
 
 import static com.example.galan.tubes.Login.SHARED_PREF_NAME;
 
@@ -115,7 +111,6 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(DialogInterface dialog, int id) {
                 Login.lg.finish();
-                DisplayList.dl.finish();
                 finish();
 
             }
