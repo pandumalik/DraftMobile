@@ -1,24 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/materi"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Materi" />
-        <item
-            android:id="@+id/account"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Account" />
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group
+        android:id="@+id/menu_bottom"
+        android:checkableBehavior="none">
         <item
             android:id="@+id/setting"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Setting" />
+            android:icon="@drawable/account_xxhdpi"
+            android:title="Contributors" />
         <item
             android:id="@+id/logout"
-            android:icon="@drawable/ic_menu_send"
-            android:title="logout" />
-
+            android:icon="@drawable/logouticons"
+            android:title="Log-Out" />
     </group>
 </menu>

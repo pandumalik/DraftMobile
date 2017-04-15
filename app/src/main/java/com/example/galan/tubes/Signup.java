@@ -1,5 +1,9 @@
 package com.example.galan.tubes;
 
+/**
+ * Created by pandu on 25/03/17.
+ */
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -16,12 +20,13 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class Signup extends AppCompatActivity {
+    private static final String REGISTER_URL = "http://pandumalik.esy.es/UserRegistration/register.php";
     EditText edit_username;
     EditText edit_email;
     EditText edit_pass;
     Button btn_sign;
+    Button btn_clear;
     EditText userid;
-    private static final String REGISTER_URL = "http://pandumalik.esy.es/UserRegistration/register.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +36,17 @@ public class Signup extends AppCompatActivity {
         edit_email = (EditText) findViewById(R.id.id_email);
         edit_pass = (EditText) findViewById(R.id.id_pass);
         btn_sign = (Button) findViewById(R.id.btn_signup);
+        btn_clear = (Button) findViewById(R.id.btn_clear2);
         userid = (EditText) findViewById(R.id.iduser);
+
+        btn_clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                edit_email.setText("");
+                edit_username.setText("");
+                edit_pass.setText("");
+            }
+        });
 
         btn_sign.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,7 +104,6 @@ public class Signup extends AppCompatActivity {
                     return null;
                 }
             }
-
         }
         RegisterUser ur = new RegisterUser();
         ur.execute(urlSuffix);

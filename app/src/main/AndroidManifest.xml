@@ -11,22 +11,12 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label=""
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Splashscreen"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".MainActivity"
-            android:label="@string/app_name"
+            android:label=""
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,8 +24,26 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".Signup" />
-        <activity android:name=".Login" />
+        <activity
+            android:name=".Splashscreen"
+            android:theme="@style/AppTheme2">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Signup"
+            android:theme="@style/AppTheme2" />
+        <activity
+            android:name=".Login"
+            android:theme="@style/AppTheme2" />
+        <activity android:name=".Upload_Download.Uploader" />
+        <activity android:name=".Accounts" />
+        <activity android:name=".Category" />
+        <activity android:name=".Upload_Download.PDFviewer" />
+        <activity android:name=".Contributor"></activity>
     </application>
 
 </manifest>

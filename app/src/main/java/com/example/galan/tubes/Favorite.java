@@ -1,11 +1,9 @@
 package com.example.galan.tubes;
 
-
 import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,8 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import com.example.galan.tubes.adaptertest.RecyclerAdapter;
-import com.example.galan.tubes.adaptertest.isiMateri;
+import com.example.galan.tubes.R;
+import com.example.galan.tubes.adapterView.RecyclerFavorite;
+import com.example.galan.tubes.setter_getter.isiFavorite;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,69 +30,49 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class materi extends Fragment {
+import static com.example.galan.tubes.Login.ID_USER;
 
+public class Favorite extends Fragment {
     RecyclerView recyclerView;
-    RecyclerView.LayoutManager layoutManager;
-    RecyclerView.Adapter adapter;
-
-    public materi() {
-        // Required empty public constructor
-    }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        getActivity().setTitle("MATERI");
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        LinearLayout ll = (LinearLayout) inflater.inflate(R.layout.fragment_materi, container, false);
-        //BackgroundTask bc = new BackgroundTask();
-        //Intent myIntent = new Intent(getActivity(), DisplayList.class);
-        //startActivity(myIntent);
-        recyclerView = (RecyclerView) ll.findViewById(R.id.recycler_view);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        LinearLayout ll = (LinearLayout) inflater.inflate(R.layout.fragment_favorite, container, false);
+        recyclerView = (RecyclerView) ll.findViewById(R.id.favorite_recycler);
         doLoad();
         return ll;
     }
-    public void doLoad(){
-        new BackgroundTask(getActivity(),recyclerView).execute();
+
+    public void doLoad() {
+        new BackgroundTask(getActivity(), recyclerView).execute();
     }
 
-    class BackgroundTask extends AsyncTask<Void, isiMateri, Void> {
+    class BackgroundTask extends AsyncTask<Void, isiFavorite, Void> {
 
         Context ctx;
-        //Activity activity;
         RecyclerView recyclerView;
         RecyclerView.Adapter adapter;
         RecyclerView.LayoutManager layoutManager;
-        ArrayList<isiMateri> arrayList = new ArrayList<>();
+        ArrayList<isiFavorite> arrayList = new ArrayList<>();
+        String URLdata = "http://pandumalik.esy.es/UserRegistration/getFavorite.php?iduser="+ID_USER;
 
         public BackgroundTask(Activity ctx, RecyclerView rview) {
             this.ctx = ctx;
             this.recyclerView = rview;
         }
 
-        String URLdata = "http://pandumalik.esy.es/UserRegistration/materi.php";
-
         @Override
         protected void onPreExecute() {
-            recyclerView = (RecyclerView) recyclerView.findViewById(R.id.recycler_view);
+            recyclerView = (RecyclerView) recyclerView.findViewById(R.id.favorite_recycler);
             layoutManager = new LinearLayoutManager(ctx);
             recyclerView.setLayoutManager(layoutManager);
             recyclerView.setHasFixedSize(true);
-            adapter = new RecyclerAdapter(arrayList);
+            adapter = new RecyclerFavorite(arrayList);
             recyclerView.setAdapter(adapter);
         }
 
         @Override
-        protected void onProgressUpdate(isiMateri... values) {
+        protected void onProgressUpdate(isiFavorite... values) {
             arrayList.add(values[0]);
             adapter.notifyDataSetChanged();
         }
@@ -114,7 +93,6 @@ public class materi extends Fragment {
                 String line;
                 while ((line = bufferedReader.readLine()) != null) {
                     stringBuilder.append(line + "\n");
-
                 }
 
                 httpURLConnection.disconnect();
@@ -126,11 +104,10 @@ public class materi extends Fragment {
                 while (count < jsonArray.length()) {
                     JSONObject JO = jsonArray.getJSONObject(count);
                     count++;
-                    isiMateri isiMateris = new isiMateri(JO.getString("title"), JO.getString("description"));
-                    publishProgress(isiMateris);
+                    isiFavorite fav = new isiFavorite(JO.getString("namaMateri"), JO.getString("date"), JO.getString("idMateri"));
+                    publishProgress(fav);
                 }
                 Log.d("JSON STRING", json_string);
-
 
             } catch (MalformedURLException e) {
                 e.printStackTrace();

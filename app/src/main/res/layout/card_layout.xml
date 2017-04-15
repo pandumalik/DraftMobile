@@ -1,48 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/card_view"
-    android:layout_margin="5dp"
-    card_view:cardBackgroundColor="#bf0000"
-    card_view:cardCornerRadius="12dp"
-    card_view:cardElevation="3dp"
-    card_view:contentPadding="4dp"
+    android:layout_margin="@dimen/cardmargin"
+    android:clickable="true"
     android:foreground="?selectableItemBackground"
-    android:clickable="true" >
+    card_view:cardBackgroundColor="@color/lightgrey"
+    card_view:cardCornerRadius="10dp"
+    card_view:cardElevation="3dp"
+    card_view:contentPadding="2dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="130dp"
-        android:padding="16dp" >
+        android:padding="10dp">
 
         <ImageView
+            android:id="@+id/item_image"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:id="@+id/item_image"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginRight="16dp"
-            />
+            android:layout_marginRight="16dp" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/item_detail"
-            android:layout_toRightOf="@+id/item_image"
-            android:layout_alignParentTop="true"
-            android:textSize="30sp"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/item_image"
-            android:layout_below="@+id/item_detail"
-            />
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/item_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item_title"
+            android:layout_toRightOf="@+id/item_image" />
+
+        <Button
+            android:id="@+id/favorite"
+            android:layout_width="75dp"
+            android:layout_height="20dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/item_image"
+            android:layout_toRightOf="@+id/item_image"
+            android:background="@drawable/favicon"
+            android:text="" />
+
+        <Button
+            android:id="@+id/open"
+            android:layout_width="75dp"
+            android:layout_height="20dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/openicon"
+            android:text="" />
 
     </RelativeLayout>
 </android.support.v7.widget.CardView>
