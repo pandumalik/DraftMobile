@@ -12,7 +12,7 @@ public class isiContributor {
     private String cover;
 
 
-    public isiContributor(String name, String contact, String photos, String cover){
+    public isiContributor(String name, String contact){
         this.name=name;
         this.contact=contact;
         this.photos=photos;

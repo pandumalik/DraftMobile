@@ -11,6 +11,11 @@ tools:context="com.example.galan.tubes.Accounts">
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="@dimen/cardmargin">
+    <ImageView
+        android:src="@drawable/login_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"/>
 
     <ImageView
         android:layout_width="100dp"

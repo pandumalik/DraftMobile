@@ -10,8 +10,10 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -53,7 +55,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
     }
 
     @Override
-    public void onBindViewHolder(RecyclerViewHolder holder, int position) {
+    public void onBindViewHolder(final RecyclerViewHolder holder, int position) {
         isiMateri isiMateris = arrayList.get(position);
         holder.title.setText(isiMateris.getTitle());
         holder.description.setText(isiMateris.getDescription());
@@ -79,6 +81,17 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
         intent.putExtra("title", is.getTitle());
         this.ctx.startActivity(intent);
     }
+
+    private void showPopupMenu(View view,int position) {
+        // inflate menu
+        PopupMenu popup = new PopupMenu(view.getContext(),view );
+        MenuInflater inflater = popup.getMenuInflater();
+        inflater.inflate(R.menu.card_button_menu, popup.getMenu());
+        popup.setOnMenuItemClickListener(new MyMenuItemClickListener(position));
+        popup.show();
+    }
+
+
 
     private void insertfavorite(int position) {
         isiMateri isiMateris = arrayList.get(position);
@@ -147,11 +160,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
             mOpen.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    onItemClicked(getAdapterPosition());
+                    showPopupMenu(mOpen,getAdapterPosition());
+                    //onItemClicked(getAdapterPosition());
                 }
             });
 
+
         }
+
 
     }
 

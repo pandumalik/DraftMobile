@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/addfavorite"
+        android:icon="@drawable/favorite"
+        android:title="Add to Favorite" />
+
+    <item
+        android:id="@+id/uploader"
+        android:icon="@drawable/accounticons"
+        android:title="Show Uploader" />
+
+    <item
+        android:id="@+id/contentOpen"
+        android:icon="@drawable/logouticons"
+        android:title="Open Content" />
+</menu>

@@ -21,36 +21,29 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
 public class Contributor extends AppCompatActivity {
 
-    RecyclerView recyclerView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tab_pengumuman);
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        setContentView(R.layout.tab_materi);
         doLoad();
-
     }
 
     public void doLoad() {
-        new BackgroundCont(Contributor.this).execute();
+        new BackgroundCont(this).execute();
     }
 
-
     class BackgroundCont extends AsyncTask<Void, isiContributor, Void> {
-
-        private Context ctx;
-        private Activity activity;
-        private RecyclerView recyclerView;
-        private RecyclerView.Adapter adapter;
-        private RecyclerView.LayoutManager layoutManager;
-        private ArrayList<isiContributor> arrayList = new ArrayList<>();
+        Context ctx;
+        Activity activity;
+        RecyclerView recyclerView;
+        RecyclerView.Adapter adapter;
+        RecyclerView.LayoutManager layoutManager;
+        ArrayList<isiContributor> arrayList = new ArrayList<>();
         private String URLdata = "http://pandumalik.esy.es/UserRegistration/contributor.php?type=dosen";
 
         public BackgroundCont(Context ctx) {
@@ -60,6 +53,7 @@ public class Contributor extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
+            recyclerView = (RecyclerView) activity.findViewById(R.id.recycler_view);
             layoutManager = new LinearLayoutManager(ctx);
             recyclerView.setLayoutManager(layoutManager);
             adapter = new RecyclerContributor(arrayList);
@@ -99,16 +93,12 @@ public class Contributor extends AppCompatActivity {
                 while (count < jsonArray.length()) {
                     JSONObject JO = jsonArray.getJSONObject(count);
                     count++;
-                    isiContributor cont = new isiContributor(JO.getString("name"), JO.getString("contact"), JO.getString("photos"), JO.getString("cover"));
+                    isiContributor cont = new isiContributor(JO.getString("name"), JO.getString("contact"));
                     publishProgress(cont);
                 }
                 Log.d("JSON STRING", json_string);
 
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (JSONException e) {
+            } catch (IOException | JSONException e) {
                 e.printStackTrace();
             }
             return null;

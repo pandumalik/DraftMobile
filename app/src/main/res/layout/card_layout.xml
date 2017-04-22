@@ -4,11 +4,12 @@
     android:id="@+id/card_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/cardmargin"
+    android:layout_marginLeft="@dimen/cardmargin"
+    android:layout_marginRight="@dimen/cardmargin"
+    android:layout_marginTop="@dimen/cardmargin"
     android:clickable="true"
     android:foreground="?selectableItemBackground"
-    card_view:cardBackgroundColor="@color/lightgrey"
-    card_view:cardCornerRadius="10dp"
+    card_view:cardBackgroundColor="@color/brightgrey"
     card_view:cardElevation="3dp"
     card_view:contentPadding="2dp">
 
@@ -23,7 +24,8 @@
             android:layout_height="100dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginRight="16dp" />
+            android:layout_marginRight="16dp"
+            android:background="@drawable/pdficon2" />
 
         <TextView
             android:id="@+id/item_title"
@@ -52,13 +54,14 @@
 
         <Button
             android:id="@+id/open"
-            android:layout_width="75dp"
-            android:layout_height="20dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:background="@drawable/openicon"
+            android:background="@drawable/plus"
             android:text="" />
+
 
     </RelativeLayout>
 </android.support.v7.widget.CardView>

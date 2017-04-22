@@ -8,7 +8,7 @@ public class isiPengumuman {
     private String title;
     private String pengumuman;
 
-    public isiPengumuman(String pengumuman, String title){
+    public isiPengumuman(String title,String pengumuman){
         this.pengumuman=pengumuman;
         this.title=title;
     }

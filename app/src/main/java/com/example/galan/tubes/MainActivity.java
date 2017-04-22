@@ -24,7 +24,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.galan.tubes.Upload_Download.PDFviewer;
 import com.example.galan.tubes.Upload_Download.Uploader;
 
 import java.util.ArrayList;
@@ -115,10 +114,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(MenuItem menuItem) {
         mDrawerLayout.closeDrawers();
         if (menuItem.getItemId() == R.id.setting) {
-            Toast.makeText(MainActivity.this, "Available soon", Toast.LENGTH_SHORT).show();
-            /*
+            //Toast.makeText(MainActivity.this, "Available soon", Toast.LENGTH_SHORT).show();
+
             Intent Cont = new Intent(this, Contributor.class);
-            startActivity(Cont);*/
+            startActivity(Cont);
         }
 
         if (menuItem.getItemId() == R.id.logout) {

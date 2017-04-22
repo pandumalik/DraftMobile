@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.galan.tubes.R;
@@ -43,7 +44,7 @@ public class RecyclerAdapterPengumuman extends RecyclerView.Adapter<RecyclerAdap
         isiPengumuman pengumuman = arrayList.get(position);
         holder.title.setText(pengumuman.getTitle());
         holder.description.setText(pengumuman.getPengumuman());
-        holder.cardView.setCardBackgroundColor(Color.parseColor("#e74c3c"));
+        holder.cardView.setCardBackgroundColor(Color.parseColor("#ECF0F1"));
     }
 
     @Override
@@ -63,12 +64,16 @@ public class RecyclerAdapterPengumuman extends RecyclerView.Adapter<RecyclerAdap
     public static class RecyclerViewHolder extends RecyclerView.ViewHolder {
         TextView title, description;
         CardView cardView;
+        ImageView icons;
 
         public RecyclerViewHolder(View view) {
             super(view);
             title = (TextView) view.findViewById(R.id.item_title);
             description = (TextView) view.findViewById(R.id.item_detail);
             cardView = (CardView) view.findViewById(R.id.card_view);
+            icons = (ImageView) view.findViewById(R.id.item_image);
+
+            icons.setBackgroundResource(R.drawable.pengumumanicon);
         }
     }
 }

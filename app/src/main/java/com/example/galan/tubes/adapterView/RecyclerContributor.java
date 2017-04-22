@@ -52,8 +52,8 @@ public class RecyclerContributor extends RecyclerView.Adapter<RecyclerContributo
             super(view);
             title = (TextView) view.findViewById(R.id.contributorName);
             detail = (TextView) view.findViewById(R.id.contributorDetail);
-            photo = (ImageView) view.findViewById(R.id.profilepic);
-            cover = (ImageView) view.findViewById(R.id.profileCover);
+            //photo = (ImageView) view.findViewById(R.id.profilepic);
+            //cover = (ImageView) view.findViewById(R.id.profileCover);
         }
     }
 }

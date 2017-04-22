@@ -51,7 +51,7 @@ public class RecyclerFavorite extends RecyclerView.Adapter<RecyclerFavorite.Recy
     public int getItemViewType(int position) {
         if (position == 0)
             return TYPE_HEAD;
-            return TYPE_LIST;
+        return TYPE_LIST;
     }
 
     public static class RecyclerViewHolder extends RecyclerView.ViewHolder {
@@ -60,9 +60,9 @@ public class RecyclerFavorite extends RecyclerView.Adapter<RecyclerFavorite.Recy
 
         public RecyclerViewHolder(View view) {
             super(view);
-            title       = (TextView) view.findViewById(R.id.favTitle);
-            date        = (TextView) view.findViewById(R.id.favDate);
-            cardView    = (CardView) view.findViewById(R.id.cardfavorite);
+            title = (TextView) view.findViewById(R.id.favTitle);
+            date = (TextView) view.findViewById(R.id.favDate);
+            cardView = (CardView) view.findViewById(R.id.cardfavorite);
         }
     }
 }
