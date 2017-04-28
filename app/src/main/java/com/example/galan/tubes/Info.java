@@ -43,8 +43,8 @@ public class Info extends AppCompatActivity {
     }
 
     private void uploadEvent() {
-        String etitle = title.getText().toString();
-        String edescription = description.getText().toString();
+        String etitle = title.getText().toString().trim();
+        String edescription = description.getText().toString().trim();
         nowUpload(etitle, edescription);
     }
 
