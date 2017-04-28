@@ -93,6 +93,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
         this.ctx.startActivity(intent);
     }
 
+    private void onDownload(int position) {
+        isiMateri is = arrayList.get(position);
+        Intent intent = new Intent(this.ctx, PDFviewer.class);
+        intent.putExtra("link", is.getLink());
+        intent.putExtra("title", is.getTitle());
+        this.ctx.startActivity(intent);
+    }
+
     private void showPopupMenu(View view, int position) {
         // inflate menu
         PopupMenu popup = new PopupMenu(view.getContext(), view);
@@ -101,7 +109,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
         popup.setOnMenuItemClickListener(new MyMenuItemClickListener(position));
         popup.show();
     }
-
 
     private void showContributor() {
         TextView name, contact;
@@ -201,9 +208,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
                 case R.id.addfavorite:
                     insertfavorite(position);
                     return true;
-                case R.id.uploader:
+                case R.id.download:
+                    onDownload(position);
                     //showContributor();
-                    showContributor();
+                    //showContributor();
                     //getContributor(position);
                     return true;
                 case R.id.contentOpen:

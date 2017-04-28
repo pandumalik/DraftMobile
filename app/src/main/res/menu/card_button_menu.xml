@@ -6,9 +6,9 @@
         android:title="Add to Favorite" />
 
     <item
-        android:id="@+id/uploader"
-        android:icon="@drawable/accounticons"
-        android:title="Show Uploader" />
+        android:id="@+id/download"
+        android:icon="@drawable/logouticons"
+        android:title="Download Materi" />
 
     <item
         android:id="@+id/contentOpen"
