@@ -15,7 +15,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-
 import com.example.galan.tubes.R;
 
 import net.gotev.uploadservice.MultipartUploadRequest;
@@ -29,7 +28,7 @@ public class Uploader extends AppCompatActivity {
     public int PDF_REQ_CODE = 1;
     String PdfNameHolder, PdfPathHolder, PdfID, PdfDescHolder;
     private Button SelectButton, UploadButton;
-    private EditText PdfNameEditText, uploaderpath,uploaderDesc;
+    private EditText PdfNameEditText, uploaderpath, uploaderDesc;
     private Uri uri;
 
     @Override
@@ -64,7 +63,6 @@ public class Uploader extends AppCompatActivity {
                 PdfUploadFunction();
             }
         });
-
     }
 
     @Override

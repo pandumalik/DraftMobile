@@ -8,11 +8,11 @@ package com.example.galan.tubes.adapterView;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Environment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -22,17 +22,13 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.galan.tubes.R;
+import com.example.galan.tubes.Upload_Download.Downloader;
 import com.example.galan.tubes.Upload_Download.PDFviewer;
-import com.example.galan.tubes.setter_getter.contributorFromList;
 import com.example.galan.tubes.setter_getter.isiMateri;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -95,11 +91,18 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
 
     private void onDownload(int position) {
         isiMateri is = arrayList.get(position);
-        Intent intent = new Intent(this.ctx, PDFviewer.class);
-        intent.putExtra("link", is.getLink());
-        intent.putExtra("title", is.getTitle());
-        this.ctx.startActivity(intent);
+        String extStorageDirectory = Environment.getExternalStorageDirectory().toString();
+        File folder = new File(extStorageDirectory, "pdf");
+        folder.mkdir();
+        File file = new File(folder, is.getTitle() + ".pdf");
+        try {
+            file.createNewFile();
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+        Downloader.DownloadFile(is.getLink(), file);
     }
+
 
     private void showPopupMenu(View view, int position) {
         // inflate menu

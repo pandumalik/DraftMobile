@@ -73,6 +73,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onClick(View view) {
                 if (USER_TYPE.equals("mahasiswa")) {
                     Snackbar.make(view, "KIRIM PESAN", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                    Intent upload = new Intent(MainActivity.this, Info.class);
+                    startActivity(upload);
                 } else if (USER_TYPE.equals("dosen")) {
                     Snackbar.make(view, "Dosen", Snackbar.LENGTH_LONG).setAction("Action", null).show();
                     Intent upload = new Intent(MainActivity.this, Uploader.class);

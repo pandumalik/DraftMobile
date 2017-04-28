@@ -2,37 +2,40 @@ package com.example.galan.tubes.Upload_Download;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
 
 /**
  * Created by galan on 28/04/2017.
  */
 
 public class Downloader {
+    private static final int MEGABYTE = 1024 * 1024;
 
     public static void DownloadFile(String fileURL, File directory) {
         try {
 
-            FileOutputStream f = new FileOutputStream(directory);
-            URL u = new URL(fileURL);
-            HttpURLConnection c = (HttpURLConnection) u.openConnection();
-            c.setRequestMethod("GET");
-            c.setDoOutput(true);
-            c.connect();
+            URL url = new URL(fileURL);
+            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+            //urlConnection.setRequestMethod("GET");
+            //urlConnection.setDoOutput(true);
+            urlConnection.connect();
 
-            InputStream in = c.getInputStream();
+            InputStream inputStream = urlConnection.getInputStream();
+            FileOutputStream fileOutputStream = new FileOutputStream(directory);
+            int totalSize = urlConnection.getContentLength();
 
-            byte[] buffer = new byte[1024];
-            int len1 = 0;
-            while ((len1 = in.read(buffer)) > 0) {
-                f.write(buffer, 0, len1);
+            byte[] buffer = new byte[MEGABYTE];
+            int bufferLength = 0;
+            while ((bufferLength = inputStream.read(buffer)) > 0) {
+                fileOutputStream.write(buffer, 0, bufferLength);
             }
-            f.close();
-        } catch (Exception e) {
+            fileOutputStream.close();
+        } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }
