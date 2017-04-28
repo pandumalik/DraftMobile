@@ -20,7 +20,7 @@ import android.widget.TextView;
  */
 public class switcher extends Fragment {
 
-    private static final String REGISTER_URL = "http://pandumalik.esy.es/UserRegistration/update.php";
+    private static final String REGISTER_URL = "http://pandumaliks.esy.es/UserRegistration/update.php";
     private TextView mAccount, mCategory;
     private CardView cAccount, cCategory;
     private ImageButton iAccount, iCategory;

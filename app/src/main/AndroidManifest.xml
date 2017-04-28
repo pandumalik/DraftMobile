@@ -43,7 +43,7 @@
         <activity android:name=".Accounts" />
         <activity android:name=".Category" />
         <activity android:name=".Upload_Download.PDFviewer" />
-        <activity android:name=".Contributor"></activity>
+        <activity android:name=".Contributor" />
     </application>
 
 </manifest>

@@ -59,7 +59,7 @@ public class TabMateri extends Fragment {
         RecyclerView.Adapter adapter;
         RecyclerView.LayoutManager layoutManager;
         ArrayList<isiMateri> arrayList = new ArrayList<>();
-        String URLdata = "http://pandumalik.esy.es/UserRegistration/materi.php?type=materi";
+        String URLdata = "http://pandumaliks.esy.es/UserRegistration/materi.php?type=materi";
 
         public BackgroundTask(Activity ctx, RecyclerView rview) {
             this.ctx = ctx;
@@ -109,7 +109,7 @@ public class TabMateri extends Fragment {
                 while (count < jsonArray.length()) {
                     JSONObject JO = jsonArray.getJSONObject(count);
                     count++;
-                    isiMateri isiMateris = new isiMateri(JO.getString("title"), JO.getString("description"), JO.getString("idmateri"), JO.getString("link"));
+                    isiMateri isiMateris = new isiMateri(JO.getString("title"), JO.getString("description"), JO.getString("idmateri"), JO.getString("link"), JO.getString("iddosen"));
                     publishProgress(isiMateris);
                 }
                 Log.d("JSON STRING", json_string);

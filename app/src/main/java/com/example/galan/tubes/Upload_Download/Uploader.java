@@ -25,7 +25,7 @@ import java.util.UUID;
 
 public class Uploader extends AppCompatActivity {
 
-    public static final String PDF_UPLOAD_HTTP_URL = "http://pandumalik.esy.es/UserRegistration/uploadernew.php";
+    public static final String PDF_UPLOAD_HTTP_URL = "http://pandumaliks.esy.es/UserRegistration/uploadernew.php";
     public int PDF_REQ_CODE = 1;
     String PdfNameHolder, PdfPathHolder, PdfID, PdfDescHolder;
     private Button SelectButton, UploadButton;

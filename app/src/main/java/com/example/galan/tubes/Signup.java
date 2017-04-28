@@ -20,7 +20,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class Signup extends AppCompatActivity {
-    private static final String REGISTER_URL = "http://pandumalik.esy.es/UserRegistration/register.php";
+    private static final String REGISTER_URL = "http://pandumaliks.esy.es/UserRegistration/register.php";
     EditText edit_username;
     EditText edit_email;
     EditText edit_pass;

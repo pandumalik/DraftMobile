@@ -46,7 +46,7 @@ public class RecyclerContributor extends RecyclerView.Adapter<RecyclerContributo
 
     public static class RecyclerViewHolder extends RecyclerView.ViewHolder {
         TextView title, detail;
-        ImageView photo, cover;
+        //ImageView photo, cover;
 
         public RecyclerViewHolder(View view) {
             super(view);

@@ -9,12 +9,22 @@ public class isiMateri {
     private String description;
     private String idmateri;
     private String link;
+    private String iddosen;
 
-    public isiMateri(String title, String description, String idmateri, String link) {
+    public isiMateri(String title, String description, String idmateri, String link, String iddosen) {
         this.description = description;
         this.title = title;
         this.idmateri=idmateri;
         this.link=link;
+        this.iddosen=iddosen;
+    }
+
+    public String getIddosen() {
+        return iddosen;
+    }
+
+    public void setIddosen(String iddosen) {
+        this.iddosen = iddosen;
     }
 
     public String getLink() {

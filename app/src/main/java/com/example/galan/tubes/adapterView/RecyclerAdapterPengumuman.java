@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -65,6 +66,7 @@ public class RecyclerAdapterPengumuman extends RecyclerView.Adapter<RecyclerAdap
         TextView title, description;
         CardView cardView;
         ImageView icons;
+        Button mOpen;
 
         public RecyclerViewHolder(View view) {
             super(view);
@@ -72,7 +74,9 @@ public class RecyclerAdapterPengumuman extends RecyclerView.Adapter<RecyclerAdap
             description = (TextView) view.findViewById(R.id.item_detail);
             cardView = (CardView) view.findViewById(R.id.card_view);
             icons = (ImageView) view.findViewById(R.id.item_image);
+            mOpen = (Button) view.findViewById(R.id.open);
 
+            mOpen.setVisibility(View.GONE);
             icons.setBackgroundResource(R.drawable.pengumumanicon);
         }
     }

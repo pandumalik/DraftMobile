@@ -44,7 +44,7 @@ public class Contributor extends AppCompatActivity {
         RecyclerView.Adapter adapter;
         RecyclerView.LayoutManager layoutManager;
         ArrayList<isiContributor> arrayList = new ArrayList<>();
-        private String URLdata = "http://pandumalik.esy.es/UserRegistration/contributor.php?type=dosen";
+        private String URLdata = "http://pandumaliks.esy.es/UserRegistration/contributor.php?type=dosen";
 
         public BackgroundCont(Context ctx) {
             this.ctx = ctx;

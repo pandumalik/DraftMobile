@@ -22,7 +22,7 @@ import static com.example.galan.tubes.Login.SHARED_PREF_NAME;
 public class Accounts extends AppCompatActivity {
 
 
-    private static final String REGISTER_URL = "http://pandumalik.esy.es/UserRegistration/update.php";
+    private static final String REGISTER_URL = "http://pandumaliks.esy.es/UserRegistration/update.php";
     private EditText mName;
     private EditText mEmail;
     private EditText mPass;

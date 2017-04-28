@@ -54,7 +54,7 @@ public class Favorite extends Fragment {
         RecyclerView.Adapter adapter;
         RecyclerView.LayoutManager layoutManager;
         ArrayList<isiFavorite> arrayList = new ArrayList<>();
-        String URLdata = "http://pandumalik.esy.es/UserRegistration/getFavorite.php?iduser="+ID_USER;
+        String URLdata = "http://pandumaliks.esy.es/UserRegistration/getFavorite.php?iduser="+ID_USER;
 
         public BackgroundTask(Activity ctx, RecyclerView rview) {
             this.ctx = ctx;

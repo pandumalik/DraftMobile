@@ -43,16 +43,6 @@
             android:layout_toRightOf="@+id/item_image" />
 
         <Button
-            android:id="@+id/favorite"
-            android:layout_width="75dp"
-            android:layout_height="20dp"
-            android:layout_alignParentBottom="true"
-            android:layout_toEndOf="@+id/item_image"
-            android:layout_toRightOf="@+id/item_image"
-            android:background="@drawable/favicon"
-            android:text="" />
-
-        <Button
             android:id="@+id/open"
             android:layout_width="30dp"
             android:layout_height="30dp"

@@ -65,7 +65,7 @@ public class TabPengumuman extends Fragment {
         RecyclerView.Adapter adapter;
         RecyclerView.LayoutManager layoutManager;
         ArrayList<isiPengumuman> arrayList = new ArrayList<>();
-        String URLdata = "http://pandumalik.esy.es/UserRegistration/materi.php?type=pengumuman";
+        String URLdata = "http://pandumaliks.esy.es/UserRegistration/materi.php?type=pengumuman";
 
         public BackgroundTask(Activity ctx, RecyclerView rview) {
             this.ctx = ctx;

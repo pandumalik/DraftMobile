@@ -29,7 +29,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class Login extends AppCompatActivity {
-    public static final String LOGIN_URL = "http://pandumalik.esy.es/UserRegistration/login.php";
+    public static final String LOGIN_URL = "http://pandumaliks.esy.es/UserRegistration/login.php";
     public static String LOGIN_PREFERENCE = "LOGIN";
     public static String SHARED_PREF_DATA = "unck";
     public static String ID_USER;
@@ -154,7 +154,7 @@ public class Login extends AppCompatActivity {
 
     class BackgroundTask extends AsyncTask<Void, UserData, Void> {
         String username = editTextEmail.getText().toString();
-        String URLdata = "http://pandumalik.esy.es/UserRegistration/getUser.php?username=" + username;
+        String URLdata = "http://pandumaliks.esy.es/UserRegistration/getUser.php?username=" + username;
         ProgressDialog loading;
 
         @Override
