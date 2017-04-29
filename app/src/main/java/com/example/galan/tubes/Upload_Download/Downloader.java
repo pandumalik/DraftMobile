@@ -23,8 +23,8 @@ public class Downloader {
             FileOutputStream f = new FileOutputStream(directory);
             URL u = new URL(fileUrl);
             HttpURLConnection c = (HttpURLConnection) u.openConnection();
-            c.setRequestMethod("GET");
-            c.setDoOutput(true);
+            //c.setRequestMethod("GET");
+            //c.setDoOutput(true);
             c.connect();
 
             InputStream in = c.getInputStream();
