@@ -100,7 +100,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
         } catch (IOException e1) {
             e1.printStackTrace();
         }
-        Downloader.DownloadFile(is.getLink(), file);
+        Downloader.downloadFile(is.getLink(), file);
     }
 
 
