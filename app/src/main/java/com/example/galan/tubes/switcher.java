@@ -41,20 +41,11 @@ public class switcher extends Fragment {
         View ll = inflater.inflate(R.layout.fragment_setting, container, false);
         //RelativeLayout ll = (RelativeLayout) inflater.inflate(R.layout.fragment_account, container, false);
         iAccount = (ImageButton) ll.findViewById(R.id.accountButt);
-        iCategory = (ImageButton) ll.findViewById(R.id.categoryButt);
         iAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent akun = new Intent(getActivity(), Accounts.class);
                 startActivity(akun);
-            }
-        });
-
-        iCategory.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent kategori = new Intent(getActivity(), Category.class);
-                startActivity(kategori);
             }
         });
         return ll;
