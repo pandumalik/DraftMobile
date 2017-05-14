@@ -52,13 +52,13 @@ public class RecyclerContributor extends RecyclerView.Adapter<RecyclerContributo
     }
 
     private void onItemClicked(int position) {
-        Intent intent = new Intent(this.ctx, Accounts.class);
+        Intent intent = new Intent(this.ctx, MapsActivity.class);
         this.ctx.startActivity(intent);
     }
 
     public void onClickOpenAddressButton(){
         // TODO 18 : Store an address in a String
-        String address = "1600 Ampitheatre Parkway, CA";
+        String address = "Rajawali Futsal Bandung";
         Uri location = Uri.parse("geo:0,0?q=" + address);
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(location);
@@ -83,7 +83,8 @@ public class RecyclerContributor extends RecyclerView.Adapter<RecyclerContributo
             mdirection.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    onClickOpenAddressButton();
+                    //onClickOpenAddressButton();
+                    onItemClicked(getAdapterPosition());
                 }
             });
         }
