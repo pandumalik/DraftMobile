@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import com.example.galan.tubes.R;
 import com.example.galan.tubes.adapterView.RecyclerFavorite;
 import com.example.galan.tubes.setter_getter.isiFavorite;
 
@@ -54,7 +53,7 @@ public class Favorite extends Fragment {
         RecyclerView.Adapter adapter;
         RecyclerView.LayoutManager layoutManager;
         ArrayList<isiFavorite> arrayList = new ArrayList<>();
-        String URLdata = "http://pandumaliks.esy.es/UserRegistration/getFavorite.php?iduser="+ID_USER;
+        String URLdata = "http://pandumaliks.esy.es/UserRegistration/getFavorite.php?iduser=" + ID_USER;
 
         public BackgroundTask(Activity ctx, RecyclerView rview) {
             this.ctx = ctx;

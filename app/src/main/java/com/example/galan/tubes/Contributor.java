@@ -56,7 +56,7 @@ public class Contributor extends AppCompatActivity {
             recyclerView = (RecyclerView) activity.findViewById(R.id.recycler_view);
             layoutManager = new LinearLayoutManager(ctx);
             recyclerView.setLayoutManager(layoutManager);
-            adapter = new RecyclerContributor(arrayList);
+            adapter = new RecyclerContributor(arrayList, ctx);
             recyclerView.setAdapter(adapter);
         }
 

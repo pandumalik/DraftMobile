@@ -32,13 +32,15 @@
             app:civ_border_color="#FFFFFF"
             app:civ_border_width="5dp" />
 
+
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/profilepic"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
+            android:layout_alignParentStart="true"
+            android:id="@+id/linearLayout">
 
             <TextView
                 android:id="@+id/contributorName"
@@ -58,6 +60,29 @@
                 android:layout_marginTop="10dp"
                 android:text="Contact Number" />
         </LinearLayout>
+
+        <Button
+            android:background="@drawable/calls"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:id="@+id/callCont"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/profilepic"
+            android:layout_toStartOf="@+id/profilepic"
+            android:layout_marginRight="36dp"
+            android:layout_marginEnd="36dp" />
+
+        <Button
+            android:background="@drawable/directions"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:id="@+id/directionCont"
+            android:layout_marginRight="14dp"
+            android:layout_marginEnd="14dp"
+            android:layout_alignBaseline="@+id/callCont"
+            android:layout_alignBottom="@+id/callCont"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
     </RelativeLayout>
 </android.support.v7.widget.CardView>

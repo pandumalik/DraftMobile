@@ -103,7 +103,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
         Downloader.downloadFile(is.getLink(), file);
     }
 
-
     private void showPopupMenu(View view, int position) {
         // inflate menu
         PopupMenu popup = new PopupMenu(view.getContext(), view);
@@ -111,24 +110,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
         inflater.inflate(R.menu.card_button_menu, popup.getMenu());
         popup.setOnMenuItemClickListener(new MyMenuItemClickListener(position));
         popup.show();
-    }
-
-    private void showContributor() {
-        TextView name, contact;
-
-        AlertDialog.Builder mBuilder = new AlertDialog.Builder(this.ctx);
-        LayoutInflater inflater = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-        View view = inflater.inflate(R.layout.contributor, null);
-        name = (TextView) view.findViewById(R.id.contributorName);
-        contact = (TextView) view.findViewById(R.id.contributorDetail);
-
-        name.setText(NAMA);
-        contact.setText(CONTACT);
-
-        mBuilder.setView(view);
-        final AlertDialog dialog = mBuilder.create();
-        dialog.show();
     }
 
     private void insertfavorite(int position) {
